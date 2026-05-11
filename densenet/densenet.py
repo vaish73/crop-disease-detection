@@ -81,7 +81,7 @@ model = models.Sequential([
 ])
 
 # -----------------------------
-# COMPILE MODEL
+# COMPILE MODEL 
 # -----------------------------
 model.compile(
     optimizer='adam',
