@@ -1,6 +1,6 @@
 __pycache__/
 *.pyc
-*.h5
 *.keras
+*.h5
 Rice_Leaf_AUG/
 test_images/
