@@ -17,8 +17,8 @@ import os #added by varun to imoprt dataset from relative folder
 
 # Dataset path
 # dataset_path = r"C:\Users\monke\crop-disease-detection\MobileNet\Rice_Leaf_AUG"
-#Dataset path to the one that exists in the other relative folder (edited by varun)
 
+#Dataset path to the one that exists in the other relative folder (edited by varun)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 dataset_path = os.path.join(BASE_DIR, "..", "MobileNet", "Rice_Leaf_AUG")
 
