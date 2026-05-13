@@ -67,6 +67,13 @@ base_model = MobileNetV2(
 
 # Freeze pretrained layers
 base_model.trainable = False
+# base_model.trainable = True
+
+# # Freeze most layers
+# for layer in base_model.layers[:-30]:
+#     layer.trainable = False
+
+
 
 # -----------------------------
 # BUILD MODEL
@@ -103,7 +110,7 @@ model.summary()
 history = model.fit(
     train_dataset,
     validation_data=validation_dataset,
-    epochs=5
+    epochs=4
 )
 
 # -----------------------------
