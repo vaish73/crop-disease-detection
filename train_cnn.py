@@ -2,9 +2,9 @@ import torch
 from torchvision import datasets, transforms, models
 
 # -------- IMAGE TRANSFORM --------
-transform = transforms.Compose([
+transform = transforms.Compose([   
     transforms.Resize((224,224)),
-    transforms.ToTensor()
+    transforms.ToTensor() 
 ])
 
 # -------- LOAD DATASET --------
