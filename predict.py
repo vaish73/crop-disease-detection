@@ -19,7 +19,7 @@ class_names = [
 ]
 
 # Image path
-img_path = r"test_images/aug_0_17.jpg"
+img_path = r"test_images/blbb.jpg"
 
 # Load image
 img = image.load_img(img_path, target_size=(224,224))
