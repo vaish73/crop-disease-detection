@@ -3,6 +3,11 @@ from tensorflow.keras import layers, models
 from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 
+import matplotlib
+matplotlib.use('Agg')
+
+import matplotlib.pyplot as plt
+
 # -----------------------------
 # DATASET PATH
 # -----------------------------
@@ -107,6 +112,45 @@ history = model.fit(
 loss, accuracy = model.evaluate(validation_dataset)
 
 print("\nValidation Accuracy:", accuracy * 100)
+
+
+# -----------------------------
+# ACCURACY GRAPH
+# -----------------------------
+plt.figure()
+
+plt.plot(history.history['accuracy'])
+plt.plot(history.history['val_accuracy'])
+
+plt.title('MobileNetV2 Accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+
+plt.legend(['Training', 'Validation'])
+
+plt.savefig("mobilenet_accuracy.png")
+
+print("Accuracy Graph Saved")
+
+# -----------------------------
+# LOSS GRAPH
+# -----------------------------
+plt.figure()
+
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+
+plt.title('MobileNetV2 Loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+
+plt.legend(['Training', 'Validation'])
+
+plt.savefig("mobilenet_loss.png")
+
+print("Loss Graph Saved")
+
+
 
 
 model.save("rice_disease_mobilenet.h5")

@@ -33,7 +33,7 @@ img = image.load_img(
 )
 
 # -----------------------------
-# IMAGE TO ARRAY
+# CONVERT IMAGE TO ARRAY
 # -----------------------------
 img_array = image.img_to_array(img)
 
@@ -52,13 +52,28 @@ img_array = img_array / 127.5 - 1
 # -----------------------------
 prediction = model.predict(img_array)
 
-predicted_class = class_names[np.argmax(prediction)]
+predicted_index = np.argmax(prediction)
+
+predicted_class = class_names[predicted_index]
 
 confidence = np.max(prediction) * 100
 
 # -----------------------------
-# OUTPUT
+# ALL CLASS PROBABILITIES
 # -----------------------------
-print("\nPredicted Disease:", predicted_class)
+print("\n====================================")
+print("   Crop Disease Prediction Result")
+print("====================================")
 
-print("Confidence:", confidence)
+print(f"\nPredicted Disease : {predicted_class}")
+
+print(f"Confidence        : {confidence:.2f}%")
+
+print("\n------------------------------------")
+print("Class Probabilities")
+print("------------------------------------")
+
+for i in range(len(class_names)):
+    print(f"{class_names[i]} : {prediction[0][i] * 100:.2f}%")
+
+print("\n====================================")
