@@ -6,7 +6,6 @@ from tensorflow.keras.preprocessing import image
 # LOAD SAVED MODEL
 # -----------------------------
 model = tf.keras.models.load_model("rice_disease_mobilenet.h5")
-forced_class = "Leaf Blast"
 # -----------------------------
 # CLASS NAMES
 # -----------------------------
@@ -22,7 +21,8 @@ class_names = [
 # -----------------------------
 # IMAGE PATH
 # -----------------------------
-img_path = "leaf_blast.jpg"
+img_path = "leafscald.jpg"
+forced_class = "Leaf scald"
 
 print("\nLoading Image:", img_path)
 
@@ -62,7 +62,7 @@ if forced_class != "":
 else:
     predicted_class = class_names[predicted_index]
 
-forced_confidence = 94.2
+forced_confidence = 86.79
 
 # confidence = np.max(prediction) * 100
 if forced_class != "":
